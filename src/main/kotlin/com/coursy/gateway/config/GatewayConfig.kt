@@ -29,23 +29,23 @@ class GatewayConfig {
         
         return builder.routes()
             .route("auth-service") { r ->
-                r.path("/auth/**")
+                r.path("/api/auth/**")
                     .uri(authServiceUrl)
             }
             .route("users-service") { r ->
-                r.path("/users/**")
+                r.path("/api/users/**")
                     .uri(usersServiceUrl)
             }
             .route("platforms-service") { r ->
-                r.path("/platforms/**")
+                r.path("/api/platforms/**")
                     .uri(platformsServiceUrl)
             }
             .route("courses-service") { r ->
-                r.path("/courses/**")
+                r.path("/api/courses/**")
                     .uri(coursesServiceUrl)
             }
             .route("videos-service") { r ->
-                r.path("/videos/**")
+                r.path("/api/videos/**")
                     .uri(videosServiceUrl)
             }
             .build()
