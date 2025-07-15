@@ -1,6 +1,7 @@
 package com.coursy.gateway.config
 
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.boot.webservices.client.WebServiceMessageSenderFactory.http
 import org.springframework.cloud.gateway.route.RouteLocator
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder
 import org.springframework.context.annotation.Bean
@@ -46,6 +47,10 @@ class GatewayConfig {
             .route("videos-service") { r ->
                 r.path("/videos/**")
                     .uri(videosServiceUrl)
+            }
+            .route("test") { r ->
+                r.path("/test/**")
+                    .uri("http://localhost:8000")
             }
             .build()
     }
