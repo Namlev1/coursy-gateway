@@ -48,10 +48,6 @@ class GatewayConfig {
                 r.path("/videos/**")
                     .uri(videosServiceUrl)
             }
-            .route("test") { r ->
-                r.path("/test/**")
-                    .uri("http://localhost:8000")
-            }
             .build()
     }
 }
