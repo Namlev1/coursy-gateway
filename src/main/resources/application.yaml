@@ -30,7 +30,7 @@ services:
     url: 'http://localhost:8082'
   courses:
     url: 'http://localhost:8083'
-  videos:
+  content:
     url: 'http://localhost:8084'
   auth:
     url: 'http://localhost:8085'

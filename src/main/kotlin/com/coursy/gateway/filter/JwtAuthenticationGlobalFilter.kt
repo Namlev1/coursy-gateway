@@ -43,8 +43,9 @@ class JwtAuthenticationGlobalFilter(
 
     private fun handleUnauthorized(exchange: ServerWebExchange, failure: Failure): Mono<Void> {
         val response = exchange.response
-        response.statusCode = HttpStatus.FORBIDDEN
+        response.statusCode = HttpStatus.UNAUTHORIZED
         response.headers.add("Content-Type", "application/json")
+        response.headers.add("WWW-Authenticate", "Bearer") // ← DODANE (RFC standard)
 
         val body = """{"error": "${failure.message()}"}"""
         val buffer = response.bufferFactory().wrap(body.toByteArray())

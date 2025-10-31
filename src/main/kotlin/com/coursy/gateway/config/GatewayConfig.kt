@@ -1,7 +1,6 @@
 package com.coursy.gateway.config
 
 import org.springframework.beans.factory.annotation.Value
-import org.springframework.boot.webservices.client.WebServiceMessageSenderFactory.http
 import org.springframework.cloud.gateway.route.RouteLocator
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder
 import org.springframework.context.annotation.Bean
@@ -21,8 +20,8 @@ class GatewayConfig {
     @Value("\${services.courses.url:http://courses-service:8080}")
     private lateinit var coursesServiceUrl: String
 
-    @Value("\${services.videos.url:http://videos-service:8080}")
-    private lateinit var videosServiceUrl: String
+    @Value("\${services.content.url:http://content-service:8080}")
+    private lateinit var contentServiceUrl: String
 
     @Bean
     fun routeLocator(builder: RouteLocatorBuilder): RouteLocator {
@@ -44,9 +43,9 @@ class GatewayConfig {
                 r.path("/api/courses/**")
                     .uri(coursesServiceUrl)
             }
-            .route("videos-service") { r ->
-                r.path("/api/videos/**")
-                    .uri(videosServiceUrl)
+            .route("content-service") { r ->
+                r.path("/api/content/**")
+                    .uri(contentServiceUrl)
             }
             .build()
     }
