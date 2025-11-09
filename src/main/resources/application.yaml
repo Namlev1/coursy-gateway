@@ -25,12 +25,12 @@ server:
   port: 8080
 services:
   users:
-    url: 'http://localhost:8081'
+    url: ${USERS_SERVICE_URL:http://localhost:8081}
   platforms:
-    url: 'http://localhost:8082'
+    url: ${PLATFORMS_SERVICE_URL:http://localhost:8082}
   courses:
-    url: 'http://localhost:8083'
+    url: ${COURSES_SERVICE_URL:http://localhost:8083}
   content:
-    url: 'http://localhost:8084'
+    url: ${CONTENT_SERVICE_URL:http://localhost:8084}
   auth:
-    url: 'http://localhost:8085'
+    url: ${AUTH_SERVICE_URL:http://localhost:8085}
