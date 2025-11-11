@@ -1,0 +1,25 @@
+meta {
+  name: Create new host user
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{url}}/users/host/register
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "test@email.com",
+    "password": "pa$$w0RD",
+    "roleName": "ROLE_USER"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
